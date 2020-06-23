@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-4">&nbsp;</div>
+  <div class="col-sm-4">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter phone Number</mat-label>
+      <input matInput #phoneNo id="phoneNo" (input)="updateValue(phoneNo.value)">
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="getData()" style="margin-left: 10px;"> Get Modified Phone
+      Numbers</button>
+  </div>
+</div>
+<div class="col-sm-4">&nbsp;</div>
+<div *ngIf="showGrid">
+  <div class="col-sm-4">Total number of combinations:{{modifiedPhoneNumber.length}}</div>
+  <ag-grid-angular style="width: 350px; height: 500px;" class="ag-theme-alpine" [rowData]="modifiedPhoneNumber"
+    [columnDefs]="columnDefs" [pagination]="true" [gridOptions]="gridOptions">
+  </ag-grid-angular>
+</div>
